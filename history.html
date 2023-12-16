@@ -1,0 +1,117 @@
+{% extends "layout.html" %}
+
+{% block title %}
+   History
+{% endblock %}
+
+{% block main %}
+<h2 class="heading">Expenses History</h2>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th >Timestamp</th>
+                <th >Category</th>
+                <th  >Amount</th>
+                <th >Action</th>
+            </tr>
+        </thead>
+        <tbody>
+          {% for expense in expenses %}
+                <tr class="expense-entry" data-expense-id="{{ expense.id }}">
+                    <td  >{{ expense.timestamp }}</td>
+                    <td>{{ expense.category }}</td>
+                    <td >{{ expense.amount }}</td>
+                    <td>
+                        <button class="delete-button w3-button w3-red w3-border w3-hover-black" data-expense-id="{{ expense.id }}">Delete</button>
+                    </td>
+                </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        const deleteButtons = document.querySelectorAll('.delete-button');
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', async () => {
+                const expenseId = button.getAttribute('data-expense-id');
+                const user_id = {{ user_id }};
+                try {
+                    const response = await fetch(`/delete_expense/${user_id}/${expenseId}`, {
+                        method: 'DELETE'
+                    });
+
+                    console.log('Expense Deletion Response Status:', response.status);
+
+                    if (response.ok) {
+                        const expenseEntry = document.querySelector(`.expense-entry[data-expense-id="${expenseId}"]`);
+                        expenseEntry.remove();
+                    } else {
+                        console.error('Failed to delete expense');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                }
+            });
+        });
+    </script>
+
+
+<h2 style="margin-top: 60px;"class="heading">Savings History</h2>
+
+
+<table>
+    <thead>
+        <tr>
+            <th >Timestamp</th>
+            <th>Amount</th>
+            <th >Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for saving in savings %}
+            <tr class="saving-entry" data-saving-id="{{ saving.id }}">
+                <td >{{ saving.timestamp }}</td>
+                <td>{{ saving.amount }}</td>
+                <td>
+                    <button class="delete-saving-button w3-button w3-red "  data-saving-id="{{ saving.id }}">Delete</button>
+                </td>
+
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<script>
+    const deleteSavingButtons = document.querySelectorAll('.delete-saving-button');
+    deleteSavingButtons.forEach(button => {
+        button.addEventListener('click', async () => {
+            const savingId = button.getAttribute('data-saving-id');
+            const user_id = '{{ user_id }}'; // Make sure to use proper quotes around user_id
+            try {
+                const response = await fetch(`/delete_savings/${user_id}/${savingId}`, {
+                    method: 'DELETE'
+                });
+
+                console.log('Savings Deletion Response Status:', response.status);
+
+                if (response.ok) {
+                    const savingEntry = document.querySelector(`.saving-entry[data-saving-id="${savingId}"]`);
+                    if (savingEntry) {
+                        savingEntry.remove();
+                        console.log('Saving entry removed');
+                    } else {
+                        console.error('Savings entry not found in the DOM for savingId:', savingId);
+                    }
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        });
+    });
+</script>
+
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <!-- http://getbootstrap.com/docs/5.1/ -->
+        <!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/85648/IBMPlexSansVar-Roman.ttf">
+        <link href="/static/styles.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Expense Minder - {% block title %}{% endblock %} </title>
+</head>
+<body>
+    <nav style="letter-spacing: 1px;"   class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container">
+            <a href="/main" class="navbar-brand mintgreen">
+                <div>
+                    <i class="fas fa-money-bill-alt"></i>
+                    <span class="brand-text">Expense</span>
+                    <span class="brand-subtext">Minder</span>
+                </div>
+                <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+                    <div class="container">
+                        <ul class="navbar-nav ms-auto mt-2 custom-button-list">
+                            <li>
+                                <a href="/register" class="custom-button sign-in">SIGN UP</a>
+                            </li>
+                            <li>
+                                <a href="/login" class="custom-button sign-out">SIGN IN</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+
+          </nav>
+
+
+    <body>
+      <main class="container-fluid py-5 text-center">
+
+            <div class="custom-div">
+                <p>Welcome back to Expense Reminder App!</p>
+            </div>
+    <form action="/login" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="mb-3">
+
+            <input autofocus class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password">
+        </div>
+        <button class="custom-button" type="submit">SIGN IN</button>
+
+    </form>
+</main>
+<footer style= margin>
+  &copy; 2023 ExpenseMinder. All rights reserved.
+</footer>
+
+</body>
+
+</html>

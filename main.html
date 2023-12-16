@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    index
+{% endblock %}
+
+{% block main %}
+
+<h2 class="heading">Dashboard</h2>
+
+  <table >
+    <thead>
+          <tr>
+              <th >Savings</th>
+              <th >Total Expense</th>
+              <th >Remaining Income</th>
+              <th ><strong>Total Income</strong></th>
+
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <td >{{ total_savings | usd }}</td>
+              <td >{{ total_expense | usd }}</td>
+              <td >{{ remaining_income | usd }}</td>
+              <td ><strong>{{ total_income | usd }}</strong></td>
+          </tr>
+      </tbody>
+  </table>
+  {% endblock %}

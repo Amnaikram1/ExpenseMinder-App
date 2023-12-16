@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Addincome
+{% endblock %}
+
+{% block main %}
+<form class="form" action="/Addincome" method="post">
+    <label for="Addincome">Add Income:</label>
+    <input autofocus autocomplete type="number" id="amount" name="amount" required>
+    <button class="custom-button" type=submit>Add Income</button>
+</form>
+
+{% endblock %}

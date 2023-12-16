@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <!-- http://getbootstrap.com/docs/5.1/ -->
+        <!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/85648/IBMPlexSansVar-Roman.ttf">
+        <link href="/static/styles.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Expense Minder - {% block title %}{% endblock %} </title>
+    <style>
+
+/* Style for the button container */
+.homepage {
+    font-family: "Slab Serifs", serif;
+    letter-spacing: 1px;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 160px;
+    margin-bottom:auto;
+}
+
+.modal-button-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+/* Style for the buttons */
+.modal-button {
+    padding: 40px 80px;
+    border: none;
+    background-color;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Left button */
+.modal-button.left {
+    margin-right: 25px;
+    background-color:green;
+    margin-left: 20px;
+    margin-top: 50px;
+}
+
+/* Right button */
+.modal-button.right {
+    margin-left: 40px;
+    background-color: black;
+    margin-top: 40px;
+    margin-right:30px;
+}
+
+
+.w3-modal-content {
+    max-width: 400px auto; /* Adjust the maximum width of the modal */
+    margin: auto;
+    border-radius: 10px;
+    position: center;
+}
+
+.w3-container {
+    padding: 10px;
+    text-align: center;
+}
+
+.w3-container h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    padding: 1px;
+    font-family: "Slab Serifs", serif;
+}
+
+.w3-container p {
+    font-size: 16px;
+
+}
+
+.w3-container footer {
+    text-align: center;
+    padding: 5px;
+    background-color: #f2f2f2;
+    font-family: "Sans Serif", sans-serif;
+}
+.w3-button {
+        background-color: green;
+        color: ;
+        padding: px;
+        font-size: 18px;
+        border: black;
+        border-radius: px;
+        cursor: pointer;
+        margin: px;
+    }
+    header, nav {
+        height: 100px;
+    }
+
+
+
+    /* Style each modal container */
+    .modal-container {
+        width: 48%; /* Adjust the width as needed */
+        margin-bottom: 10px;
+    }
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+/* New CSS styles for modal layout */
+.modal-container {
+    position: relative;
+    width: calc(33.33% - 20px); /* Adjust width as needed */
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+
+.w3-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.w3-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    z-index: 5;
+    font-family: "Sans Serif", sans-serif;
+}
+.nav-link {
+  color: green;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 19px;
+  margin-right:10px;
+
+}
+</style>
+</head>
+<body>
+
+
+    <nav style="letter-spacing: 1px;"   class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container">
+            <a style="color: green; font-size: 39px;"  href="/homepage" class="navbar-brand mintgreen">
+             <i style="color: green;"class="fa fa-home w3-green w3-xxxlarge"></i> Home</li></a>
+            <ul class="navbar-nav ms-auto mt-2">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a id="dashboard-link" class="nav-link" href="/main">Dashboard</a></li>
+                    <li class="nav-item"><a id="add-income-link" class="nav-link" href="/Addincome">Add Income</a></li>
+                    <li class="nav-item"><a id="add-expense-link" class="nav-link" href="/Addexpense">Add Expense</a></li>
+                    <li class="nav-item"><a id="add-savings-link" class="nav-link" href="/savings">Add Savings</a></li>
+                    <li class="nav-item"><a id="history-link" class="nav-link" href="/history">History</a></li>
+                    <li class="nav-item"><a id="quick-visual-link" class="nav-link" href="/charts">Quick Visual</a></li>
+                <li>
+                    <a href="/logout" style="margin-top:px;" class="custom-button sign-out">SIGN OUT</a>
+                </li>
+          </ul>
+         </div>
+   </nav>
+   <main class="w3-container">
+    <div>
+        <h2 class="homepage" > Quick Start Guide:</h2>
+    </div>
+
+    <div class="buttons-container">
+        <div class="button-group left-buttons">
+            <button onclick="openModal('financialHistoryModal')" class="modal-button left">HISTORY</button>
+            <button onclick="openModal('dashboardModal')" class="modal-button right">DASHBOARD</button>
+            <button onclick="openModal('quickVisualModal')" class="modal-button left">QUICK VISUAL</button>
+        </div>
+        <div class="button-group right-buttons">
+            <button onclick="openModal('addIncomeModal')" class="modal-button right">ADD INCOME</button>
+            <button onclick="openModal('addExpenseModal')" class="modal-button left">ADD EXPENSE</button>
+            <button onclick="openModal('addSavingsModal')" class="modal-button right">ADD SAVINGS</button>
+        </div>
+    </div>
+    <div class="modal-content-container">
+    <!-- Financial History Modal -->
+
+   <div id="financialHistoryModal" class="w3-modal">
+    <div class="w3-modal-content w3-card-4">
+        <header class="w3-container w3-green">
+                    <span onclick="closeModal('financialHistoryModal')" class="w3-button w3-black display-top-left close-button">&times;</span>
+                    <h2 style="color: white;"><a href="/history">Financial History</a></h2>
+
+                </header>
+                <div class="w3-container">
+                    <p style="font-weight: ;">Users can view a history of their expenses, showing the timestamp, category, and amount. Entries can be deleted individually, providing control over the expense history. Users can also view a history of their savings, displaying the timestamp and amount. Individual savings as well as expense entries can be deleted for better management.</p>
+                </div>
+                <footer class="w3-container w3-green">
+                    <p>A visually appealing and easy-to-understand interface helps users track their financial situation.</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+
+                <div id="dashboardModal" class="w3-modal">
+                    <div class="w3-modal-content w3-card-4">
+                        <header class="w3-container w3-green">
+                            <span onclick="document.getElementById('dashboardModal').style.display='none'" class="w3-button w3-black display-top-left close-button">&times;</span>
+                            <h2 style="color: white;"><a href="/main">Dashboard</a></h2>
+                        </header>
+                        <div class="w3-container">
+                            <p style="font-weight: ;">Users are greeted with a dashboard displaying their financial overview:</p>
+                            <ul>
+                                <li>Total Savings</li>
+                                <li>Total Expenses</li>
+                                <li>Remaining Income</li>
+                                <li>Overall Income</li>
+                            </ul>
+                        </div>
+                        <footer class="w3-container w3-green">
+                            <p>A visually appealing and easy-to-understand interface helps users track their financial situation.</p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+
+
+
+    <!-- Quick Visual Modal -->
+
+        <div id="quickVisualModal" class="w3-modal">
+            <div class="w3-modal-content w3-card-4">
+                <header class="w3-container w3-green">
+                    <span onclick="document.getElementById('quickVisualModal').style.display='none'" class="w3-button w3-black display-top-left close-button">&times;</span>
+                    <h2 style="color: white;"><a href= "/charts">Quick Visual</a></h2>
+                </header>
+                <div class="w3-container">
+                    <p style="font-weight: ;">Quick visualizations are provided through real-time timeline and bar charts, illustrating savings amounts by months. Additionally, a real-time chart showcases expense categories by amounts, offering insights into spending and savings trends.</p>
+                </div>
+                <footer class="w3-container w3-green">
+                    <p>A visually appealing and easy-to-understand interface helps users track their financial situation.</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Add Income Modal -->
+
+        <div id="addIncomeModal" class="w3-modal">
+            <div class="w3-modal-content w3-card-4">
+                <header class="w3-container w3-green">
+                    <span onclick="document.getElementById('addIncomeModal').style.display='none'" class="w3-button w3-black display-top-left close-button">&times;</span>
+                    <h2 style="color: white;"><a href="/Addincome">Add Income</a></h2>
+                </header>
+                <div class="w3-container">
+                    <p style="font-weight: ;">Income seamlessly integrates, enhancing your financial standing. The dashboard offers a clear view, with the option to manage individual entries for accuracy.</p>
+                </div>
+                <footer class="w3-container w3-green">
+                    <p>A visually appealing and easy-to-understand interface helps users track their financial situation.</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <!-- Add Expense Modal -->
+
+        <div id="addExpenseModal" class="w3-modal">
+            <div class="w3-modal-content w3-card-4">
+                <header class="w3-container w3-green">
+                    <span onclick="document.getElementById('addExpenseModal').style.display='none'" class="w3-button w3-black display-top-left close-button">&times;</span>
+                    <h2 style="color: white;"><a href= "/Addexpense">Add Expenses</a></h2>
+                </header>
+                <div class="w3-container">
+                    <p style="font-weight: ;">Users can add expenses by selecting a category (food, grocery, fuel, bills, or other) and entering the amount. If an invalid amount or category is added, an apology is shown. The expense is categorized and reflected in the total expenses on the dashboard.</p>
+                </div>
+                <footer class="w3-container w3-green">
+                    <p>A visually appealing and easy-to-understand interface helps users track their financial situation.</p>
+                </footer>
+            </div>
+        </div>
+
+
+        <!-- Add Savings Modal -->
+
+            <div id="addSavingsModal" class="w3-modal">
+                <div class="w3-modal-content w3-card-4">
+                    <header class="w3-container w3-green">
+                        <span onclick="document.getElementById('addSavingsModal').style.display='none'"class="w3-button w3-black display-top-left close-button">&times;</span>
+                        <h2 style="color: black;"><a href="/savings">Add Savings</a></h2>
+                    </header>
+                    <div class="w3-container">
+                        <p style="font-weight: bold;">Savings can be effortlessly recorded by specifying the desired allocation, ensuring financial goals are met. Real-time visualization through dynamic graphs provides a clear overview of your progress, and individual savings can be conveniently removed or adjusted to maintain accurate financial records.</p>
+                    </div>
+                    <footer class="w3-container w3-green">
+                        <p>A visually appealing and easy-to-understand interface helps users track their financial situation.</p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+ <script>
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'none';
+        }
+        </script>
+
+    </main>
+</body>
+</html>
+      </body>
+      <footer>
+        &copy; 2023 ExpenseMinder. All rights reserved.
+      </footer>
+      </html>

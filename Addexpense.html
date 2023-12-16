@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Addexpense
+{% endblock %}
+
+{% block main %}
+<form class="form" action="/Addexpense" method="post">
+    <label style="margin-top: -12px;"for="category">Select Category:</label>
+    <select autofocus id="category" name="category">
+        <option disabled selected>Expense</option>
+        <option value="Food">Food</option>
+        <option value="Grocery">Grocery</option>
+        <option value="Bills">Bills</option>
+        <option value="Fuel">Fuel</option>
+        <option value="Others">Others</option>
+
+    </select>
+    <label for="amount">Amount:</label>
+    <input autofocus autocomplete="off" type="number" id="amount" name="amount" required>
+    <button class="custom-button"type="submit">Add Expense</button>
+</form>
+{% endblock %}

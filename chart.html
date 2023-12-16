@@ -1,0 +1,193 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Chart
+{% endblock %}
+
+{% block main %}
+<div class="chart-container">
+    <h1 class="chart-title">Monthly Savings Chart:</h1>
+    <h2 class="title">Line Chart</h2>
+    <canvas id="lineChart" width="400" height="200"></canvas>
+    <h2 class="title" >Bar Chart</h2>
+    <canvas id="barChart" width="400" height="200"></canvas>
+</div>
+<script>
+    const lineCtx = document.getElementById('lineChart').getContext('2d');
+    const barCtx = document.getElementById('barChart').getContext('2d');
+    let lineChart, barChart;
+
+    // Month names array
+    const monthNames = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+
+    async function fetchAndDisplayCharts() {
+    try {
+        const response = await fetch('/charts', { method: 'POST' });
+        const chartData = await response.json();
+
+        if (lineChart) {
+            lineChart.destroy();
+        }
+
+        if (barChart) {
+            barChart.destroy();
+        }
+
+        const chartLabels = Object.keys(chartData);
+
+        lineChart = new Chart(lineCtx, {
+            type: 'line',
+            data: {
+                labels: chartLabels,
+                datasets: [{
+                    label: 'Monthly Savings',
+                    data: Object.values(chartData),
+                    fill: false,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Months'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Amounts'
+                        }
+                    }
+                }
+            }
+        });
+        // Bar Chart
+        barChart = new Chart(barCtx, {
+            type: 'bar',
+            data: {
+                labels: chartLabels,
+                datasets: [{
+                    label: 'Monthly Savings',
+                    data: Object.values(chartData),
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Months'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Amounts'
+                        }
+                    }
+                }
+            }
+        });
+
+    } catch (error) {
+        console.error('Error:', error);
+    }
+                }
+
+                fetchAndDisplayCharts();
+
+</script>
+<div class="chart-container">
+    <h2 class="title" >Expense Chart</h2>
+    <canvas id="myChart" width="400" height="200"></canvas>
+</div>
+<script>
+const myCtx = document.getElementById('myChart').getContext('2d');
+let myChart;
+let chartDataObject = {}; // Use an object to store data
+
+// Array of background colors
+const backgroundColors = [
+    'rgba(54, 162, 235, 0.2)',
+    'rgba(255, 99, 132, 0.2)',
+    'rgba(75, 192, 192, 0.2)',
+    'rgba(255, 206, 86, 0.2)',
+    'rgba(153, 102, 255, 0.2)'
+];
+
+async function fetchAndDisplayChart() {
+    try {
+        const response = await fetch('/chart', { method: 'POST' });
+        const newChartData = await response.json();
+
+        // Update the chartDataObject with new data
+        for (const label in newChartData) {
+            if (chartDataObject[label]) {
+                chartDataObject[label] += newChartData[label];
+            } else {
+                chartDataObject[label] = newChartData[label];
+            }
+        }
+
+        if (myChart) {
+            myChart.destroy();
+        }
+
+        const chartLabels = Object.keys(chartDataObject);
+        myChart = new Chart(myCtx, {
+            type: 'bar',
+            data: {
+                labels: chartLabels,
+                datasets: [{
+                    label: 'Amounts',
+                    data: chartLabels.map(label => chartDataObject[label]),
+                    backgroundColor: backgroundColors,
+                    borderColor: backgroundColors, // Use the same color as backgroundColor
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        display: true,
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Amounts'
+                        }
+                    }
+                }
+            }
+        });
+
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+fetchAndDisplayChart();
+
+
+</script>
+
+
+{% endblock %}
+

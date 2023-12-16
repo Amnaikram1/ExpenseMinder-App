@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Savings
+{% endblock %}
+
+{% block main %}
+<form class="form" action="/savings" method="post">
+    <label >Add Savings</label>
+    <input autofocus autocomplete="off" type="number" id="amount" name="amount" required min="0">
+    <button class="custom-button" type="submit">Add Savings</button>
+</form>
+{% endblock %}
+

@@ -1,0 +1,518 @@
+.navbar-nav .nav-item a.nav-link.active {
+  text-decoration: underline;
+  color: green;
+}
+.header1 {
+  font-size: 30px;
+  color: black;
+  background-color: green;
+
+  border-radius: 5px;
+  font-family: "Slab Serifs", serif;
+  letter-spacing:1px;
+
+}
+.header2 {
+  font-size: 25px;
+  color: white;
+  background-color: green;
+
+  border-radius: 5px;
+  font-family: "Slab Serifs", serif;
+  letter-spacing: 1px;
+}
+/* Top left modal */
+.top-left-w3{
+  position: fixed;
+  top: 0px;
+  margin-left: -400px;
+}
+
+/* Top center modal */
+.top-center {
+  position: fixed;
+  top: 50px;
+  left: calc(50% - 200px);
+}
+
+/* Top right modal */
+.top-right {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+}
+
+/* Middle left modal */
+.mid-left {
+  position: fixed;
+  top: calc(50% - 150px);
+  left: 50px;
+}
+
+/* Middle center modal */
+.mid-center {
+  position: fixed;
+  top: calc(50% - 150px);
+  left: calc(50% - 200px);
+}
+
+/* Middle right modal */
+.mid-right {
+  position: fixed;
+  top: calc(50% - 150px);
+  right: 50px;
+}
+
+
+/* Navbar styles */
+.navbar {
+  letter-spacing: 1px;
+}
+
+.navbar-brand .mintgreen {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.navbar-brand .fas {
+  margin-left: -15px;
+  color: green;
+  font-size: 30px;
+}
+
+.navbar-brand .brand-text {
+  margin-left: px;
+  font-size: 34px;
+  font-weight: bold;
+  color: green;
+  font-family: "Slab Serifs", serif;
+}
+
+.navbar-brand .brand-subtext {
+  margin-left: px;
+  font-size: 32px;
+  font-weight: bold;
+  color: green;
+  font-family: "Slab Serifs", serif;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: green;
+  display: flex;
+  align-items: center;
+  padding: 10px 0px;
+  font-family: "Slab Serifs", serif; /* Apply the Slab Serif font family */
+}
+
+/* Nav-link styles */
+.nav-link {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  margin: 0px;
+  font-size: 17px;
+
+}
+
+/* Styling for the headings */
+.heading {
+  font-family: "Slab Serifs", serif;
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+
+/* Table styles */
+tr#tableheads {
+  font-family: "Slab Serifs", serif;
+}
+
+table {
+  margin: auto;
+  border: 1px solid black;
+  font-family: "Slab Serifs", serif;
+  max-width: 800px auto;
+  width: 70%;
+
+}
+
+/* Table header styles */
+thead th {
+  background-color: ;
+  color: black;
+  border: 2px solid black;
+  font-family: "Slab Serifs", serif;
+  font-size:24px;
+  padding: 8px;
+
+
+}
+
+/* Table cell styles */
+td {
+  color: black;
+  border: 2px solid black;
+  font-family: "Sans Serif", sans-serif;
+  font-size: 20px;
+  padding: 8px;
+
+
+}
+
+/* Remove border from the last row */
+tr:last-child td {
+  border-bottom: 2px solid black;
+}
+th, td {
+  border: 2px solid black;
+  padding: 6px;
+  letter-spacing: px;
+
+
+}
+/* styles.css */
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: "Sans Serif", sans-serif;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.custom-div {
+  text-align: left;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: "Slab Serifs", serif;
+  margin-left: 50px;
+
+  letter-spacing:.5px;
+}
+.index-div {
+  letter-spacing:.5px;
+  text-align: left;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: "Slab Serifs", serif;
+  margin-left: 40px;
+
+}
+
+
+/* Top section styling */
+.section.top {
+  text-align: left;
+  margin-top: -30px;
+  padding: 20px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-family: "Sans Serif", sans-serif;/* Adjust the vertical value (10px) as needed */
+
+
+}
+
+/* Content styling */
+.content {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+
+}
+
+/* Middle section styling */
+.section.middle h2 {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Slab Serifs", serif;
+  text-align: left;
+  margin-left: 20px;
+  padding: 20px;
+
+}
+.section.middle ul {
+
+  font-weight: normal;
+  font-family: "Sans Serif", sans-serif;
+  font-size: 20px;
+  text-align: left;
+  margin-left: 40px;
+  padding: 20px;
+  margin-top: -30px;
+
+}
+
+/* Bottom section styling */
+.section.bottom h2 {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Slab Serifs", serif;
+  text-align: left;
+  margin-left: 20px;
+  padding: 20px;
+  margin-top: 30px;
+
+}
+.section.bottom p {
+  font-size: 20px;
+  font-weight: normal;
+  font-family: "Sans Serif", sans-serif;
+  text-align: left;
+  margin-left: 20px;
+  padding: 20px;
+  margin-top: -45px;
+}
+
+/* Tick mark styling */
+.tick {
+  color: green;
+  margin-right: 10px;
+}
+
+/* Footer styling */
+
+/* Navbar styles */
+.navbar {
+  letter-spacing: 1px;
+}
+
+.navbar-brand .mintgreen {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.navbar-brand .fas {
+  margin-left: -15px;
+  color: green;
+  font-size: 30px;
+}
+
+.navbar-brand .brand-text {
+  margin-left: px;
+  font-size: 34px;
+  font-weight: bold;
+  color: green;
+  font-family: "Slab Serifs", serif;
+}
+
+.navbar-brand .brand-subtext {
+  margin-left: px;
+  font-size: 32px;
+  font-weight: bold;
+  color: green;
+  font-family: "Slab Serifs", serif;
+}
+
+/* Base styling for navigation links */
+.nav-link {
+  color: green;
+  transition: color 0.3s;
+}
+
+/* Styling for navigation links on hover */
+.nav-link:hover {
+  color: darkgreen;
+}
+
+.custom-button-list {
+  display: flex;
+  align-items: center;
+}
+
+.custom-button {
+  margin-top: 10px;
+  margin-right: 10px;
+  border-radius: 22px;
+  background-color: green;
+  border: 1px solid green;
+  color: white;
+  text-decoration: none;
+  font-family: "Slab Serifs", serif;
+  padding: 10px 22px;
+  font-size: 18px;
+  letter-spacing:1px;
+}
+
+.sign-in {
+  margin-top: -20px;
+  margin-left: 10px;
+  padding: 11px 20px;
+  font-size: 16px;
+}
+
+.sign-out {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+
+
+.w3-button {
+  border: 1px solid green;
+  background-color: darkgreen;
+  color: white;
+  padding: 11px 24px;
+  font-size: 18px;
+  border: black;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-family: "Slab Serifs", serif;
+  letter-spacing: 1px;
+}
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.form-group {
+  margin-bottom: 20px auto;
+  width: 60% auto;
+}
+
+.form label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  font-family: "Slab Serifs", serif; /* Apply Slab Serifs font family */
+  letter-spacing: 1px;
+}
+
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 40%;
+  /* Other styles */
+}
+.mb-3 input {
+  margin-top: 60px auto;
+  margin-bottom: 20px auto;
+  text-align: center;
+}
+
+.form input[type="text"],
+form input[type="number"],
+form select,
+form textarea {
+  border-radius: 0px;
+  max-width: 700px;
+  width: 30%;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 22px;
+  margin-top:5px;
+  padding: 10px;
+}
+#category {
+  max-width: 500px;
+  width: 30%;
+  padding: 10px;
+
+}
+
+
+.form-error {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: -10px;
+}
+
+.form-success {
+  /* Other styles */
+  font-size: 14px;
+  margin-top: -10px;
+}
+
+button:hover {
+  background-color: black;
+}
+
+/* FOOTER STYLES */
+footer {
+    text-align: center;
+    background-color: black;
+    padding: 10px;
+    color: white;
+    font-family: Sans serif;
+    font-weight: 15px;
+    margin-top: auto;
+    letter-spacing: 1px;
+  }
+
+
+
+
+/* Chart container styles */
+.Chart-container {
+  width: auto;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#myChart {
+  width: auto;
+  max-width: 600px;
+  margin: 1px auto;
+  text-align: center;
+  height: 250px;
+}
+
+/* Styles for the chart titles */
+.title {
+  font-size: 30px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  font-family: Sans serif;
+}
+
+/* Styles for individual chart containers */
+#lineChart,
+#barChart {
+  border: 1px solid #ddd;
+  width: 30%;
+  max-width: 600px;
+  margin: 1px auto;
+}
+
+/* Additional styling for the main title */
+.chart-title {
+  text-align: left;
+  letter-spacing:.5px;
+  font-weight: bold;
+  text-decoration: ;
+  font-size: 40px;
+  font-family: "Slab Serifs", serif;
+  margin-bottom: 20px;
+  margin-left:50px;
+}
+
+/* MEDIA QUERIES */
+
+
+/* Media query for tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Adjust styles for tablets */
+  body {
+    font-size: 16px;
+  }
+
+}
+
+/* Media query for desktops and larger screens */
+@media (min-width: 1024px)
+  body {
+    font-size: 18px;
+  }

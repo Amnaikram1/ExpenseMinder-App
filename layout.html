@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <!-- http://getbootstrap.com/docs/5.1/ -->
+        <!-- Latest compiled and minified CSS -->
+        <script href="https://kit.fontawesome.com/a076d05399.js"></script>
+      <script  src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+        <link href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/85648/IBMPlexSansVar-Roman.ttf">
+        <link href="/static/styles.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link href="https://fonts.googleapis.com/css2?family=Slab+Serifs&display=swap" rel="stylesheet">
+
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+        <title>Expense Minder - {% block title %}{% endblock %} </title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container">
+            <a href="/homepage" class="navbar-brand mintgreen">
+                <div>
+                    <i class="fas fa-money-bill-alt"></i>
+                    <span class="brand-text">Expense</span>
+                    <span class="brand-subtext">Minder</span>
+                </div>
+            </a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a id="dashboard-link" class="nav-link" href="/main">Dashboard</a></li>
+                <li class="nav-item"><a id="add-income-link" class="nav-link" href="/Addincome">Add Income</a></li>
+                <li class="nav-item"><a id="add-expense-link" class="nav-link" href="/Addexpense">Add Expense</a></li>
+                <li class="nav-item"><a id="add-savings-link" class="nav-link" href="/savings">Add Savings</a></li>
+                <li class="nav-item"><a id="history-link" class="nav-link" href="/history">History</a></li>
+                <li class="nav-item"><a id="quick-visual-link" class="nav-link" href="/charts">Quick Visual</a></li>
+                <li class="nav-item">
+                    <a id="home-link" class="nav-link" href="/homepage">
+                      <i class="fa fa-home w3-green"></i> Home
+                    </a>
+                  </li>
+                <li class="nav-item">
+                    <a id="about-link" class="nav-link" href="/about">
+                      <i class="fas fa-money-bill-alt"></i>About Us
+                    </a>
+                </li>
+
+
+
+            </ul>
+        </div>
+    </nav>
+            <script>
+                // Get the current pathname
+                const pathname = window.location.pathname;
+
+                // Define an object to map page IDs to their corresponding paths
+                const pagePaths = {
+                  'dashboard-link': '/main',
+                  'add-income-link': '/Addincome',
+                  'add-expense-link': '/Addexpense',
+                  'add-savings-link': '/savings',
+                  'history-link': '/history',
+                  'quick-visual-link': '/charts',
+                  'home-link': '/homepage',
+                  'about-link': '/'
+                };
+
+                // Find the corresponding navigation link and adjust its font size
+                const activeLinkId = Object.keys(pagePaths).find(linkId => pagePaths[linkId] === pathname);
+                if (activeLinkId) {
+                  const activeLink = document.getElementById(activeLinkId);
+                  if (activeLink) {
+                    activeLink.classList.add('active-link'); // Apply the active link style
+                  }
+                }
+
+$(document).ready(function() {
+  // Get the current URL path
+  var currentPath = window.location.pathname;
+
+  // Remove the active class from all navigation links
+  $('.navbar-nav .nav-item a.nav-link').removeClass('active');
+
+  // Add the active class to the navigation link matching the current URL
+  $('.navbar-nav .nav-item a.nav-link[href="' + currentPath + '"]').addClass('active');
+});
+</script>
+
+
+
+<header class="header1">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% for category, message in messages %}
+                    {% if category == "header1" %}
+                        <div class="alert alert-mb-0 text-center" style="margin-bottom: 0; text-align: center;" role="alert">{{ message }}</div>
+                    {% endif %}
+                {% endfor %}
+            {% endwith %}
+        </header>
+</header>
+<header class="header2">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+            {% if category == "header2" %}
+                <div class="alert alert-mb-0 text-center" role="alert" class="flash-message">{{ message }}</div>
+            {% endif %}
+        {% endfor %}
+    {% endwith %}
+</header>
+<body>
+<main class="container-fluid py-5 text-center">
+{% block main %}{% endblock %}` `
+</main>
+<footer>
+    &copy; 2023 ExpenseMinder. All rights reserved.
+</footer>
+
+</body>
+
+</html>
